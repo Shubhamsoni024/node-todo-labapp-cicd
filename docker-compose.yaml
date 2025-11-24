@@ -1,0 +1,7 @@
+version: '3.9'
+
+services:
+  web:
+   image: shubhamsonirg/node-todo-labapp-cicd:latest
+   ports:
+     - "8080:8000"
