@@ -36,7 +36,7 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
-        stage('Image cleanup'){
+        stage('Unused Image cleanup'){
             steps {
                 sh "docker image prune -f"
             }
