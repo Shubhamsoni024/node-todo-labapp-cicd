@@ -17,6 +17,7 @@ pipeline {
                 echo 'logging in to docker hub and pushing image..'
                 withCredentials([usernamePassword(credentialsId:'DockerHub',passwordVariable:'DockerHubPassword', usernameVariable:'DockerHubUsername')]) {
                     sh "docker login -u ${env.DockerHubUsername} -p ${env.DockerHubPassword}"
+                    sh "docker image rmi --all"
                     sh "docker image tag $JOB_NAME:v1.$BUILD_ID shubhamsonirg/$JOB_NAME:v1.$BUILD_ID"
                     sh "docker image tag $JOB_NAME:v1.$BUILD_ID shubhamsonirg/$JOB_NAME:latest"
                     sh "docker image push shubhamsonirg/$JOB_NAME:v1.$BUILD_ID"
