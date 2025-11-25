@@ -25,7 +25,7 @@ pipeline {
                 }    
             }
         }
-        stage('Coping files to kubernetes...'){
+        stage('Coping deployment files to kubernetes cluster'){
             steps {
                 sh 'ansible-playbook /opt/kubernetes.yaml'
             }
